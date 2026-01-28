@@ -23,19 +23,19 @@ const Contact = () => {
     ];
 
     return (
-        <div className="overflow-hidden">
+        <main className="overflow-hidden">
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 bg-slate-50">
+            <section className="relative pt-32 pb-20 bg-slate-50" aria-labelledby="contact-hero-heading">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-8 font-bold text-sm"
                     >
-                        <MessageCircle className="w-4 h-4" />
+                        <MessageCircle className="w-4 h-4" aria-hidden="true" />
                         <span>We're Ready to Help</span>
                     </motion.div>
-                    <h1 className="text-4xl lg:text-6xl mb-6 font-bold tracking-tight">Reach Out <span className="text-primary italic">Today</span></h1>
+                    <h1 id="contact-hero-heading" className="text-4xl lg:text-6xl mb-6 font-bold tracking-tight">Reach Out <span className="text-primary italic">Today</span></h1>
                     <p className="text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
                         Whether you have a quick question or want to schedule a visit, we make it easy to get the support you need.
                     </p>
@@ -43,7 +43,7 @@ const Contact = () => {
             </section>
 
             {/* Contact Content */}
-            <section className="section-padding">
+            <section className="section-padding" aria-label="Contact Information and Form">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
 
                     {/* Contact Details */}
@@ -55,7 +55,7 @@ const Contact = () => {
                             { icon: <MapPin />, title: "Our Location", detail: "Regional Support", sub: "Nationwide Coverage" }
                         ].map((item, i) => (
                             <div key={i} className="flex items-center space-x-6 p-8 bg-white rounded-3xl border border-slate-100 shadow-lg">
-                                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shrink-0">
+                                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shrink-0" aria-hidden="true">
                                     {React.cloneElement(item.icon, { className: "w-7 h-7" })}
                                 </div>
                                 <div>
@@ -75,14 +75,18 @@ const Contact = () => {
                     {/* Form Section */}
                     <div className="lg:col-span-2">
                         <div className="bg-white p-8 lg:p-12 rounded-3xl shadow-xl border border-slate-100">
-                            <div className="flex p-2 bg-slate-50 rounded-2xl mb-12">
+                            <div className="flex p-2 bg-slate-50 rounded-2xl mb-12" role="tablist">
                                 <button
+                                    role="tab"
+                                    aria-selected={activeTab === 'resident'}
                                     onClick={() => setActiveTab('resident')}
                                     className={`flex-1 py-4 px-6 rounded-xl font-bold transition-all ${activeTab === 'resident' ? 'bg-white text-primary shadow-md' : 'text-slate-500 hover:text-slate-700'}`}
                                 >
                                     Families
                                 </button>
                                 <button
+                                    role="tab"
+                                    aria-selected={activeTab === 'facility'}
                                     onClick={() => setActiveTab('facility')}
                                     className={`flex-1 py-4 px-6 rounded-xl font-bold transition-all ${activeTab === 'facility' ? 'bg-white text-primary shadow-md' : 'text-slate-500 hover:text-slate-700'}`}
                                 >
@@ -91,9 +95,9 @@ const Contact = () => {
                             </div>
 
                             {submitted ? (
-                                <div className="text-center py-16">
+                                <div className="text-center py-16" role="alert">
                                     <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
-                                        <CheckCircle className="w-10 h-10" />
+                                        <CheckCircle className="w-10 h-10" aria-hidden="true" />
                                     </div>
                                     <h2 className="text-3xl font-bold mb-4">Message Sent</h2>
                                     <p className="text-lg text-slate-600 mb-8 font-medium">We'll call you back very shortly.</p>
@@ -103,22 +107,22 @@ const Contact = () => {
                                 <form onSubmit={handleSubmit} className="space-y-8">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
-                                            <label className="text-sm font-bold text-slate-900 ml-1">Name</label>
-                                            <input required type="text" className="w-full px-6 py-4 rounded-xl bg-white border-2 border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all shadow-sm" placeholder="Your Name" />
+                                            <label htmlFor="name" className="text-sm font-bold text-slate-900 ml-1">Name</label>
+                                            <input id="name" required type="text" className="w-full px-6 py-4 rounded-xl bg-white border-2 border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all shadow-sm" placeholder="Your Name" />
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-sm font-bold text-slate-900 ml-1">Phone</label>
-                                            <input required type="tel" className="w-full px-6 py-4 rounded-xl bg-white border-2 border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all shadow-sm" placeholder="Your Phone" />
+                                            <label htmlFor="phone" className="text-sm font-bold text-slate-900 ml-1">Phone</label>
+                                            <input id="phone" required type="tel" className="w-full px-6 py-4 rounded-xl bg-white border-2 border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all shadow-sm" placeholder="Your Phone" />
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-sm font-bold text-slate-900 ml-1">Message</label>
-                                        <textarea required rows="4" className="w-full px-6 py-4 rounded-xl bg-white border-2 border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all shadow-sm" placeholder="How can we help today?"></textarea>
+                                        <label htmlFor="message" className="text-sm font-bold text-slate-900 ml-1">Message</label>
+                                        <textarea id="message" required rows="4" className="w-full px-6 py-4 rounded-xl bg-white border-2 border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all shadow-sm" placeholder="How can we help today?"></textarea>
                                     </div>
 
                                     <button type="submit" className="btn-primary w-full py-4 shadow-xl">
-                                        Submit Message <Send className="ml-2 w-5 h-5" />
+                                        Submit Message <Send className="ml-2 w-5 h-5" aria-hidden="true" />
                                     </button>
                                 </form>
                             )}
@@ -128,22 +132,25 @@ const Contact = () => {
             </section>
 
             {/* FAQ Block */}
-            <section className="section-padding bg-slate-50">
+            <section className="section-padding bg-slate-50" aria-labelledby="faq-heading">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl lg:text-4xl text-center mb-16 font-bold">Common Questions</h2>
+                    <h2 id="faq-heading" className="text-3xl lg:text-4xl text-center mb-16 font-bold">Common Questions</h2>
                     <div className="space-y-4">
                         {faqs.map((faq, i) => (
                             <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100">
                                 <button
                                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                                    aria-expanded={openFaq === i}
+                                    aria-controls={`faq-answer-${i}`}
                                     className="w-full p-8 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
                                 >
                                     <span className="text-xl font-bold text-slate-950">{faq.q}</span>
-                                    {openFaq === i ? <Minus className="text-primary w-6 h-6" /> : <Plus className="text-primary w-6 h-6" />}
+                                    {openFaq === i ? <Minus className="text-primary w-6 h-6" aria-hidden="true" /> : <Plus className="text-primary w-6 h-6" aria-hidden="true" />}
                                 </button>
                                 <AnimatePresence>
                                     {openFaq === i && (
                                         <motion.div
+                                            id={`faq-answer-${i}`}
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: 'auto', opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
@@ -160,7 +167,7 @@ const Contact = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 };
 

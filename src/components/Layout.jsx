@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
     return (
         <div className="flex flex-col min-h-screen">
             <Navbar />
-            <main className="flex-grow">
+            <div className="flex-grow">
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
                 >
                     {children}
                 </motion.div>
-            </main>
+            </div>
             <Footer />
         </div>
     );

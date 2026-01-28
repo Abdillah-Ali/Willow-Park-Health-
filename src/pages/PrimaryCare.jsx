@@ -21,20 +21,20 @@ const PrimaryCare = () => {
     ];
 
     return (
-        <div className="overflow-hidden">
+        <main className="overflow-hidden">
             {/* Hero Section */}
-            <section className="relative pt-32 pb-24 bg-white">
+            <section className="relative pt-32 pb-24 bg-white" aria-labelledby="primary-care-hero-heading">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div {...animations.slideUp}>
-                            <h1 className="text-5xl lg:text-7xl mb-8 leading-[1.1] font-bold text-slate-900">
+                            <h1 id="primary-care-hero-heading" className="text-5xl lg:text-7xl mb-8 leading-[1.1] font-bold text-slate-900">
                                 Medical Care That <br /><span className="text-accent italic">Comes to You</span>
                             </h1>
                             <p className="text-lg lg:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed">
                                 Our medical team visits you where you live. We focus on keeping you healthy and comfortable, without the stress of clinic visits.
                             </p>
                             <Link to="/contact" className="btn-primary bg-accent hover:bg-accent/80 border-none inline-flex px-10 py-5 rounded-2xl shadow-xl shadow-accent/20">
-                                Request Care Coordination <ArrowRight className="ml-2 w-6 h-6" />
+                                Request Care Coordination <ArrowRight className="ml-2 w-6 h-6" aria-hidden="true" />
                             </Link>
                         </motion.div>
 
@@ -45,49 +45,53 @@ const PrimaryCare = () => {
                             className="relative lg:block hidden"
                         >
                             <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
-                                <img src={primaryImg} alt="On-Site Medical Care" className="w-full h-full object-cover" />
+                                <img
+                                    src={primaryImg}
+                                    alt="A doctor performing a checkup on a senior patient in their home"
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
-                            <div className="absolute -top-12 -right-12 w-64 h-64 bg-accent/5 rounded-full blur-3xl -z-10"></div>
-                            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10"></div>
+                            <div className="absolute -top-12 -right-12 w-64 h-64 bg-accent/5 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
+                            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
                         </motion.div>
                     </div>
                 </div>
             </section>
 
             {/* Services Section */}
-            <section className="section-padding bg-slate-50">
+            <section className="section-padding bg-slate-50" aria-labelledby="medical-support-heading">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-16 text-center lg:text-left">
-                        <h2 className="text-3xl lg:text-5xl mb-4 font-bold text-slate-900">Medical Support Services</h2>
+                        <h2 id="medical-support-heading" className="text-3xl lg:text-5xl mb-4 font-bold text-slate-900">Medical Support Services</h2>
                         <p className="text-lg text-slate-600 max-w-2xl">We handle the medical details so you can focus on living your life well.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {clinicalServices.map((s, i) => (
-                            <motion.div
+                            <motion.article
                                 key={i}
                                 {...animations.fadeIn}
                                 className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 flex flex-col items-start card-hover"
                             >
-                                <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center text-accent mb-8">
+                                <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center text-accent mb-8" aria-hidden="true">
                                     <Stethoscope className="w-8 h-8" />
                                 </div>
                                 <h3 className="text-2xl lg:text-3xl font-bold mb-4">{s.title}</h3>
                                 <p className="text-slate-600 mb-8 text-lg leading-relaxed">{s.desc}</p>
                                 <Link to="/contact" className="flex items-center text-accent font-bold text-lg hover:underline group">
-                                    Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                                 </Link>
-                            </motion.div>
+                            </motion.article>
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* Our Proactive Model */}
-            <section className="section-padding bg-slate-900 text-white rounded-[4rem] mx-6 mb-24 overflow-hidden relative">
+            <section className="section-padding bg-slate-900 text-white rounded-[4rem] mx-6 mb-24 overflow-hidden relative" aria-labelledby="proactive-model-heading">
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl lg:text-6xl text-white mb-6 leading-tight">Expertise and <br /><span className="text-accent-light italic font-serif">Reliability</span></h2>
+                        <h2 id="proactive-model-heading" className="text-4xl lg:text-6xl text-white mb-6 leading-tight">Expertise and <br /><span className="text-accent-light italic font-serif">Reliability</span></h2>
                         <p className="text-xl text-slate-400 max-w-2xl mx-auto">Available whenever you or your community needs us.</p>
                     </div>
 
@@ -98,7 +102,7 @@ const PrimaryCare = () => {
                             { icon: <Shield />, title: "Peace of Mind", desc: "We handle the coordination between your doctors and your living community." }
                         ].map((item, i) => (
                             <div key={i} className="text-center p-10 bg-white/5 rounded-[3rem] border border-white/10">
-                                <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl shadow-accent/20">
+                                <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl shadow-accent/20" aria-hidden="true">
                                     <div className="text-white">
                                         {React.cloneElement(item.icon, { className: "w-8 h-8" })}
                                     </div>
@@ -109,14 +113,14 @@ const PrimaryCare = () => {
                         ))}
                     </div>
                 </div>
-                <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2"></div>
+                <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2" aria-hidden="true"></div>
             </section>
 
             {/* Benefits */}
-            <section className="section-padding">
+            <section className="section-padding" aria-labelledby="benefits-heading">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <motion.div {...animations.fadeIn}>
-                        <h2 className="text-4xl lg:text-5xl mb-10 font-bold text-slate-900 leading-tight">Better Health for a <br /><span className="text-accent italic font-serif">Better Life</span></h2>
+                        <h2 id="benefits-heading" className="text-4xl lg:text-5xl mb-10 font-bold text-slate-900 leading-tight">Better Health for a <br /><span className="text-accent italic font-serif">Better Life</span></h2>
                         <div className="space-y-8">
                             {[
                                 { title: "Fewer Hospital Visits", desc: "Our proactive care prevents many issues from becoming emergencies." },
@@ -124,7 +128,7 @@ const PrimaryCare = () => {
                                 { title: "Easy Communication", desc: "We talk to your family and your community staff so everyone is on the same page." }
                             ].map((benefit, i) => (
                                 <div key={i} className="flex items-start space-x-6">
-                                    <div className="bg-accent/10 p-3 rounded-2xl text-accent shrink-0">
+                                    <div className="bg-accent/10 p-3 rounded-2xl text-accent shrink-0" aria-hidden="true">
                                         <CheckCircle2 className="w-8 h-8" />
                                     </div>
                                     <div>
@@ -136,16 +140,20 @@ const PrimaryCare = () => {
                         </div>
                     </motion.div>
                     <div className="relative hidden lg:block">
-                        <img src={primaryImg} alt="Clinician and senior" className="rounded-[3rem] shadow-2xl relative z-10" />
-                        <div className="absolute -inset-10 bg-accent/10 rounded-full blur-[100px] -z-10"></div>
+                        <img
+                            src={primaryImg}
+                            alt="A healthcare professional discussing health management with a senior client"
+                            className="rounded-[3rem] shadow-2xl relative z-10"
+                        />
+                        <div className="absolute -inset-10 bg-accent/10 rounded-full blur-[100px] -z-10" aria-hidden="true"></div>
                     </div>
                 </div>
             </section>
 
             {/* Final CTA */}
-            <section className="section-padding bg-slate-50 text-center">
+            <section className="section-padding bg-slate-50 text-center" aria-labelledby="cta-heading">
                 <div className="max-w-3xl mx-auto">
-                    <h2 className="text-4xl lg:text-5xl mb-8 font-bold text-slate-900">Ready to Improve Your Care?</h2>
+                    <h2 id="cta-heading" className="text-4xl lg:text-5xl mb-8 font-bold text-slate-900">Ready to Improve Your Care?</h2>
                     <p className="text-xl text-slate-600 mb-12 leading-relaxed">
                         Let us show you how simple and effective on-site medical care can be. Experience the concierge difference today.
                     </p>
@@ -155,7 +163,7 @@ const PrimaryCare = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 };
 

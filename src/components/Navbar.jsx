@@ -26,11 +26,11 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'py-3 glass shadow-xl shadow-primary/5' : 'py-5 bg-transparent'}`}>
+        <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'py-3 glass shadow-xl shadow-primary/5' : 'py-5 bg-transparent'}`} aria-label="Main Navigation">
             <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
-                <Link to="/" className="flex items-center space-x-3 group">
+                <Link to="/" className="flex items-center space-x-3 group" aria-label="Willow Park Healthcare Home">
                     <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/10 group-hover:rotate-6 transition-transform duration-500">
-                        <Heart className="text-white w-6 h-6" />
+                        <Heart className="text-white w-6 h-6" aria-hidden="true" />
                     </div>
                     <div className="flex flex-col">
                         <span className="font-bold text-xl leading-none text-slate-900 tracking-tight">Willow Park</span>
@@ -48,6 +48,7 @@ const Navbar = () => {
                                 ? 'text-primary bg-primary/5'
                                 : 'text-slate-600 hover:text-primary hover:bg-slate-50'
                                 }`}
+                            aria-current={location.pathname === link.path ? 'page' : undefined}
                         >
                             {link.name}
                         </Link>
@@ -63,7 +64,13 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Toggle */}
-                <button className="lg:hidden p-2 text-primary" onClick={() => setIsOpen(!isOpen)}>
+                <button
+                    className="lg:hidden p-2 text-primary"
+                    onClick={() => setIsOpen(!isOpen)}
+                    aria-label={isOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={isOpen}
+                    aria-controls="mobile-menu"
+                >
                     {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
             </div>
@@ -72,6 +79,7 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
+                        id="mobile-menu"
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
@@ -85,6 +93,7 @@ const Navbar = () => {
                                     onClick={() => setIsOpen(false)}
                                     className={`text-lg font-bold py-3 px-6 rounded-xl transition-all ${location.pathname === link.path ? 'text-primary bg-primary/5' : 'text-slate-600'
                                         }`}
+                                    aria-current={location.pathname === link.path ? 'page' : undefined}
                                 >
                                     {link.name}
                                 </Link>
