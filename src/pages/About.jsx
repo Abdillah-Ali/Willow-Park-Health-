@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Target, Eye, Users, Award, Shield, Heart, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import facilityImg from '../assets/facility-partner.png';
+import heroImg from '../assets/hero.png';
 
 const About = () => {
     const animations = {
@@ -11,98 +12,113 @@ const About = () => {
     };
 
     const values = [
-        { icon: <Heart className="w-12 h-12" />, title: "Compassion", desc: "We treat every resident like a member of our own family." },
-        { icon: <Shield className="w-12 h-12" />, title: "Accessibility", desc: "Professional healthcare that comes directly to you, at no extra cost." },
-        { icon: <Award className="w-12 h-12" />, title: "Excellence", desc: "Setting the highest clinical standards for senior care." },
-        { icon: <Users className="w-12 h-12" />, title: "Collaboration", desc: "Working hand-in-hand with families and facility staff." }
+        { icon: <Heart className="w-8 h-8" />, title: "Compassion", desc: "We treat every resident like a member of our own family." },
+        { icon: <Shield className="w-8 h-8" />, title: "Accessibility", desc: "Professional healthcare that comes directly to you, at no extra cost." },
+        { icon: <Award className="w-8 h-8" />, title: "Excellence", desc: "Setting the highest clinical standards for senior care." },
+        { icon: <Users className="w-8 h-8" />, title: "Collaboration", desc: "Working hand-in-hand with families and facility staff." }
     ];
 
     return (
         <div className="overflow-hidden">
             {/* Hero Section */}
-            <section className="relative pt-48 pb-32 bg-slate-50">
+            <section className="relative pt-32 pb-24 bg-white">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <motion.div {...animations.slideUp} className="max-w-4xl">
-                        <h1 className="text-7xl lg:text-9xl mb-10 leading-tight">
-                            A Passion for <span className="text-primary italic">Better Care.</span>
-                        </h1>
-                        <p className="text-3xl text-slate-700 leading-relaxed font-medium">
-                            Willow Park Health was founded on a simple belief: that every senior deserves the best medical and emotional support, right where they live.
-                        </p>
-                    </motion.div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <motion.div {...animations.slideUp}>
+                            <h1 className="text-5xl lg:text-7xl mb-8 leading-[1.1] font-bold text-slate-900">
+                                A Passion for <br /><span className="text-primary italic">Better Care.</span>
+                            </h1>
+                            <p className="text-lg lg:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed">
+                                Willow Park Health was founded on a simple belief: that every senior deserves the best medical and emotional support, right where they live. We're on a mission to redefine what "at home" care looks like.
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1 }}
+                            className="relative lg:block hidden"
+                        >
+                            <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
+                                <img src={heroImg} alt="About Willow Park" className="w-full h-full object-cover" />
+                            </div>
+                            <div className="absolute -top-12 -left-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 
-            {/* Mission & Vision - Simple & Bold */}
-            <section className="section-padding">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                    <motion.div {...animations.fadeIn}>
-                        <img src={facilityImg} alt="Senior Living Community" className="rounded-[4rem] shadow-2xl grayscale" />
+            {/* Mission & Vision */}
+            <section className="section-padding bg-slate-50">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <motion.div {...animations.fadeIn} className="hidden lg:block">
+                        <img src={facilityImg} alt="Senior Living Community" className="rounded-3xl shadow-xl grayscale" />
                     </motion.div>
                     <div>
-                        <div className="mb-16">
-                            <h2 className="text-5xl mb-8">Our Mission</h2>
-                            <p className="text-2xl text-slate-700 leading-relaxed font-medium">
+                        <div className="mb-12">
+                            <h2 className="text-3xl lg:text-5xl mb-6 font-bold text-slate-900">Our Mission</h2>
+                            <p className="text-lg text-slate-600 leading-relaxed lg:text-xl">
                                 To improve the lives of seniors by providing professional, compassionate healthcare that visits them in their homes, removing the barriers of travel and cost.
                             </p>
                         </div>
                         <div>
-                            <h2 className="text-5xl mb-8">Our Vision</h2>
-                            <p className="text-2xl text-slate-700 leading-relaxed font-medium">
-                                To be the most trusted name in senior healthcare, known for personal attention and clinical excellence.
+                            <h2 className="text-3xl lg:text-5xl mb-6 font-bold text-slate-900">Our Vision</h2>
+                            <p className="text-lg text-slate-600 leading-relaxed lg:text-xl">
+                                To be the most trusted name in senior healthcare, known for personal attention and clinical excellence across every community we serve.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Values - High Contrast Cards */}
-            <section className="section-padding bg-slate-900 text-white rounded-[5rem] mx-6 mb-24">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-6xl text-center mb-24">What We Stand For</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* Values */}
+            <section className="section-padding bg-slate-900 text-white rounded-[4rem] mx-6 mb-20 overflow-hidden relative">
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <h2 className="text-3xl lg:text-5xl text-center mb-16 font-bold">Our Core Values</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {values.map((v, i) => (
-                            <div key={i} className="bg-white/5 p-12 rounded-[3.5rem] border border-white/10 flex flex-col items-center text-center">
-                                <div className="w-24 h-24 bg-primary rounded-3xl flex items-center justify-center text-white mb-10">
+                            <div key={i} className="bg-white/5 p-8 rounded-3xl border border-white/10 flex flex-col items-center text-center">
+                                <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center text-white mb-6">
                                     {v.icon}
                                 </div>
-                                <h3 className="text-4xl font-black mb-6">{v.title}</h3>
-                                <p className="text-2xl text-slate-400 font-medium leading-relaxed">{v.desc}</p>
+                                <h3 className="text-xl font-bold mb-3">{v.title}</h3>
+                                <p className="text-slate-400">{v.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
             </section>
 
-            {/* Team - Humanized */}
+            {/* Team */}
             <section className="section-padding">
-                <div className="max-w-7xl mx-auto text-center mb-24">
-                    <h2 className="text-6xl mb-6">Expert Leadership</h2>
-                    <p className="text-2xl text-slate-600 font-medium">The friendly faces behind our mission.</p>
+                <div className="max-w-7xl mx-auto text-center mb-20">
+                    <h2 className="text-3xl lg:text-5xl mb-4 font-bold text-slate-900">Expert Leadership</h2>
+                    <p className="text-lg text-slate-600">The friendly faces behind our mission.</p>
                 </div>
-                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
+                <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
                     {[
                         { name: "Sarah Jenkins", role: "Chief Clinical Officer", img: 32 },
                         { name: "Dr. Michael Chen", role: "Medical Director", img: 33 },
                         { name: "Elena Rodriguez", role: "Ops Director", img: 34 }
                     ].map((member, i) => (
                         <div key={i} className="text-center group">
-                            <div className="w-64 h-64 mx-auto rounded-full overflow-hidden mb-10 border-8 border-slate-50 shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                            <div className="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-slate-50 shadow-lg group-hover:scale-105 transition-transform duration-500">
                                 <img src={`https://i.pravatar.cc/300?img=${member.img}`} alt={member.name} className="w-full h-full object-cover grayscale" />
                             </div>
-                            <h3 className="text-3xl font-black mb-2">{member.name}</h3>
-                            <p className="text-2xl text-primary font-black uppercase tracking-widest">{member.role}</p>
+                            <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                            <p className="text-primary font-bold text-sm uppercase tracking-widest">{member.role}</p>
                         </div>
                     ))}
                 </div>
             </section>
 
             {/* Final CTA */}
-            <section className="section-padding bg-slate-50 text-center rounded-t-[5rem]">
-                <h2 className="text-6xl mb-10 font-black">Ready to Partner?</h2>
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
-                    <Link to="/contact" className="btn-primary px-16 py-6 text-2xl">Contact Us Today</Link>
-                    <Link to="/services" className="btn-secondary px-16 py-6 text-2xl">Our Services</Link>
+            <section className="section-padding bg-slate-50 text-center rounded-t-[3rem]">
+                <h2 className="text-3xl lg:text-4xl mb-8 font-bold text-slate-900">Ready to Partner?</h2>
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <Link to="/contact" className="btn-primary px-10 py-4 shadow-xl">Contact Us Today</Link>
+                    <Link to="/services" className="btn-secondary px-10 py-4 shadow-sm">Our Services</Link>
                 </div>
             </section>
         </div>
