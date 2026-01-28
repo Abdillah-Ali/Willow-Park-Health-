@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #006D5B;
+  --color-primary-light: #00A88E;
+  --color-primary-dark: #004D40;
+  --color-accent: #1E40AF;
+  --color-accent-light: #3B82F6;
+  --color-surface: #F8FAFC;
+
+  --font-outfit: "Outfit", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  --animate-fade-in: fadeIn 0.8s ease-out forwards;
+  --animate-slide-up: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulseSlow 4s ease-in-out infinite;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulseSlow {
+
+    0%,
+    100% {
+      opacity: 0.1;
+    }
+
+    50% {
+      opacity: 0.3;
+    }
+  }
+}
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.8;
+  font-weight: 400;
+  color-scheme: light;
+  color: #0F172A;
+  background-color: #FFFFFF;
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-outfit font-extrabold tracking-tight text-slate-950;
+  }
+
+  p {
+    @apply text-slate-800 leading-relaxed font-medium;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/95 backdrop-blur-xl border border-slate-200 shadow-xl;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .section-padding {
+    @apply py-28 px-6 lg:px-24;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 border border-slate-200 bg-white;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white px-10 py-5 rounded-2xl font-black flex items-center justify-center transition-all shadow-xl shadow-primary/20 active:scale-95 text-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-white border-2 border-slate-200 hover:border-primary text-slate-950 px-10 py-5 rounded-2xl font-black flex items-center justify-center transition-all active:scale-95 text-xl;
+  }
+
+  .nav-link {
+    @apply text-slate-800 hover:text-primary font-bold transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full text-lg;
+  }
+}
+
+/* Custom Gradients */
+.grad-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+}
+
+.grad-surface {
+  background: radial-gradient(circle at top left, #F8FAFC 0%, #FFFFFF 100%);
+}
