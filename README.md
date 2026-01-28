@@ -1,16 +1,64 @@
-# React + Vite
+# Willow Park Health 🏥
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Willow Park Health is a modern, premium healthcare platform designed to redefine senior care. Our mission is to provide high-quality medical and emotional support directly to seniors in their residential communities, removing the barriers of travel and stress.
 
-Currently, two official plugins are available:
+![Willow Park Health Demo](src/assets/hero.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **Senior-Friendly Design**: High-contrast colors, massive readability, and intuitive navigation tailored for aging eyes and ease of use.
+- **On-Site Medical Care**: Detailed overview of primary care services that visit residents where they live.
+- **Behavioral Health Support**: Specialized services for emotional well-being, memory care, and family support.
+- **Career Portal**: An integrated job board where healthcare professionals can view open roles and apply directly.
+- **Interactive Contact System**: A functional contact page with categorized inquiry forms (Families vs. Facilities) and an accordion-style FAQ.
+- **Responsive & Modern**: Fully responsive layout built with a "mobile-first" approach using the latest web technologies.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend Framework**: [React.js](https://reactjs.org/) (via [Vite](https://vitejs.dev/))
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) for rapid utility-first design + Custom Vanilla CSS for tokens.
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) for smooth, professional transitions.
+- **Icons**: [Lucide React](https://lucide.dev/) for high-quality, clinical-grade iconography.
+- **Routing**: [React Router v6](https://reactrouter.com/) for seamless page transitions.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these simple steps:
+
+### Prerequisites
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Abdillah-Ali/Willow-Park-Health-.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the development server
+   ```sh
+   npm run dev
+   ```
+
+## 📂 Project Structure
+
+```text
+src/
+├── assets/             # Images and local static files
+├── components/         # Reusable UI components (Navbar, Footer, Layout)
+├── pages/              # Individual page components (Home, About, Services, etc.)
+├── index.css          # Global styles and Tailwind directives
+└── App.jsx            # Main application routing and configuration
+```
+
+## 📄 License
+Distributed under the MIT License.
+
+## 📞 Contact
+Willow Park Health Support - [info@willowpark.com](mailto:info@willowpark.com)
+Project Link: [https://github.com/Abdillah-Ali/Willow-Park-Health-](https://github.com/Abdillah-Ali/Willow-Park-Health-)
